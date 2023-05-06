@@ -1,6 +1,10 @@
-<html>
+<!DOCTYPE html>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <head>
+        <title>Kin</title>
         {{ content_for_header }}
+        {{ 'base.css' | asset_url | stylesheet_tag }}
     </head>
     <body>
         {{ content_for_layout}}

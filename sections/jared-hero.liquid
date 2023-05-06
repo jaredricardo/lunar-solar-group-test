@@ -1,0 +1,78 @@
+<div class="hero-container">
+    <div class="text-container">
+        {% if section.settings.hero_main_text %}
+            <h1>{{ section.settings.hero_main_text }}</h1>
+        {% endif %}
+        {% if section.settings.hero_sub_text %}
+            <div>{{ section.settings.hero_sub_text }}</div>
+        {% endif %}
+      
+        {% if section.settings.have_btn %}
+            <div class="btn-container">
+
+                {% if section.settings.hero_btn_extra_text %}
+                    <span>{{ section.settings.hero_btn_extra_text }}</span>
+                {% endif %}
+
+                <a class="btn" href="{{ section.settings.btn_link }}">
+                    {{ section.settings.hero_btn_txt }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    {% if section.settings.hero_desktop %}
+        <img src="{{ section.settings.hero_desktop | img_url: 'master' }}">
+    {% endif %}
+    {% if section.settings.hero_mobile %}
+        <img src="{{ section.settings.hero_mobile | img_url: 'master' }}">
+    {% endif %}
+</div>
+
+{% schema %}
+    {
+        "name": "Jared hero",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id":"hero_desktop",
+                "label": "Desktop Hero Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "hero_mobile",
+                "label": "Mobile Hero Image"
+            },
+            {
+                "type": "text",
+                "id": "hero_main_text",
+                "label": "Main Hero Text"
+            },
+            {
+                "type": "text",
+                "id": "hero_sub_text",
+                "label": "Hero Sub Text"
+            },
+            {
+                "type":"checkbox",
+                "id":"have_btn",
+                "default": true,
+                "label":"Homepage button?"
+            },
+            {
+                "type": "text",
+                "id": "hero_btn_text",
+                "label": "Hero Button Main Text"
+            },
+            {
+                "type": "url",
+                "id": "btn_link",
+                "label": "Hero Button Link"
+            },
+            {
+                "type": "text",
+                "id": "hero_btn_extra_text",
+                "label": "Hero Extra Extra Text"
+            }
+        ]
+    }
+{% endschema %}
