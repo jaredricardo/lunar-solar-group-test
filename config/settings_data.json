@@ -1,22 +1,24 @@
 {
   "current": {
+    "header_logo": "shopify:\/\/shop_images\/logo_766ab362-76bb-4203-a1d8-fdf9be503918.svg",
+    "nav_logo": "shopify:\/\/shop_images\/Object.svg",
     "sections": {
-      "header": {
-        "type": "header",
-        "settings": {
-        }
-      },
       "jared-hero": {
         "type": "jared-hero",
         "settings": {
           "hero_desktop": "shopify:\/\/shop_images\/Screen_Shot_2020-09-21_at_9.45.59_AM_0c8120de-495a-460d-a208-5cb5eac55648.png",
-          "hero_mobile": "shopify:\/\/shop_images\/image_1_e10c6956-5694-43b2-a7c1-42e17ab1833f.png",
+          "hero_mobile": "shopify:\/\/shop_images\/image_1_4_49d6b16f-7fb2-42e0-a8d2-e2acb360bf6c.png",
           "hero_main_text": "Bliss up for Blisstober",
           "hero_sub_text": "For a limited time, bundle your bliss and save.",
           "have_btn": true,
-          "hero_btn_text": "(1x High Rhode, 1x Dream Light, and a 20-Pack of Kin Spritz.",
+          "hero_btn_txt": "$149 (5% off)",
           "btn_link": "https:\/\/jaredricardo.io\/",
-          "hero_btn_extra_text": "$149 (5% off)"
+          "hero_btn_extra_text": "(1x High Rhode, 1x Dream Light, and a 20-Pack of Kin Spritz."
+        }
+      },
+      "add-items": {
+        "type": "add-items",
+        "settings": {
         }
       }
     },

@@ -1,0 +1,27 @@
+<header>
+    <div class="menu-btn menu-btn-white">
+        MENU
+    </div>
+    <div class="logo">
+        <a href="{{ shop.url }}">
+            {% comment %}
+                Below, instead of making the logo a section, I opted to make it part of the settings schema. In my experience
+                when working with / editing profressional Shopify themes, the logo is almost always a theme setting, not a section.
+            {% endcomment%}
+            <img src="{{ settings.header_logo | img_url: 'master' }}" alt="Logo">
+        </a>
+    </div>
+    <div class="cart-login">
+        {% comment %}
+
+        This login is only shown in the first two test images then not at all for the rest? Going to leave it out, but it was here.
+
+        {% if customer %}
+            <a href="{{ routes.account_url }}">My Account</a>
+        {% else %}
+            <a href="{{ routes.account_login_url }}">Log In</a>
+        {% endif %}
+        {% endcomment %}
+        <img class="cart-icon cart-toggle-btn" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/cart-icon_white.svg?v=1683477659" alt="cart icon">
+    </div>
+</header>

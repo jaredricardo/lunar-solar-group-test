@@ -1,36 +1,50 @@
+<style>
+
+.hero-container {
+    background-image: url({{ section.settings.hero_desktop | img_url: 'master' }});
+}
+
+@media screen and (max-width: 801px) {
+    .hero-container {
+        background-image: url(none);
+    }    
+}
+</style>
+
 <div class="hero-container">
     <div class="text-container">
         {% if section.settings.hero_main_text %}
             <h1>{{ section.settings.hero_main_text }}</h1>
         {% endif %}
         {% if section.settings.hero_sub_text %}
-            <div>{{ section.settings.hero_sub_text }}</div>
+            <div class="hero-subtext">{{ section.settings.hero_sub_text }}</div>
         {% endif %}
-      
+        
         {% if section.settings.have_btn %}
             <div class="btn-container">
 
                 {% if section.settings.hero_btn_extra_text %}
-                    <span>{{ section.settings.hero_btn_extra_text }}</span>
+                    <div class="her-btn-extra-txt">{{ section.settings.hero_btn_extra_text }}</div>
                 {% endif %}
 
-                <a class="btn" href="{{ section.settings.btn_link }}">
+                <a class="desktop" href="{{ section.settings.btn_link }}" target="_blank">
                     {{ section.settings.hero_btn_txt }}
+                </a>
+                <a class="mobile" href="{{ section.settings.btn_link }}" target="_blank">
+                    Shop Dream Light
                 </a>
             </div>
         {% endif %}
     </div>
-    {% if section.settings.hero_desktop %}
-        <img src="{{ section.settings.hero_desktop | img_url: 'master' }}">
-    {% endif %}
+    <div class="mobile-background"></div>
     {% if section.settings.hero_mobile %}
-        <img src="{{ section.settings.hero_mobile | img_url: 'master' }}">
+        <img class="mobile" src="{{ section.settings.hero_mobile | img_url: 'master'}}">
     {% endif %}
 </div>
 
 {% schema %}
     {
-        "name": "Jared hero",
+        "name": "Jared Hero",
         "settings": [
             {
                 "type": "image_picker",
@@ -60,7 +74,7 @@
             },
             {
                 "type": "text",
-                "id": "hero_btn_text",
+                "id": "hero_btn_txt",
                 "label": "Hero Button Main Text"
             },
             {

@@ -1,3 +1,17 @@
 [
-
+    {
+        "name": "Logo",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id":"header_logo",
+                "label": "Header Logo"
+            },
+            {
+                "type": "image_picker",
+                "id":"nav_logo",
+                "label": "Nav Logo"
+            }
+        ]
+    }
 ]

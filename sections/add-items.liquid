@@ -1,0 +1,6 @@
+<div style="height: 300px;">
+    {% for product in collections['automated-collection'].products limit: 4 %}
+        <div class="example-atc" data-variant-id="{{ product.variants[0].id }}"> {{ product.title }} << click to add to cart for testing </div>
+    {% endfor %}
+</div>
+

@@ -1,0 +1,59 @@
+{% comment %} initial cart state {% endcomment %}
+
+<div class="cart-drawer">
+    <div class="cart-top">
+        <a href="{{ shop.url }}">
+            <img src="{{ settings.nav_logo | img_url: 'master' }}" alt="logo">
+        </a>
+        <div class="cart-arrow cart-toggle-btn">
+            <img src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/arrow.svg?v=1683580059">
+        </div>
+    </div>
+    <div class="cart-items {% if cart.item_count == 0%} cart-empty {% endif %}">
+        {% if cart.item_count == 0 %}
+            <div class="cart-empty-text">
+                Your cart is thirsty.
+            </div>
+        {% else %}
+            {% for item in cart.items %}
+            <div class="cart-item">
+                {% assign price = item.price | money_without_currency %}
+                <div class="item-image-container">
+                    <img class="item-image" src="{{ item.image | img_url: 'medium' }}">
+                </div>
+                <div class="item-info">
+                    <div class="item-title">{{ item.title }}</div>
+                    <div class="variant-title-price">
+                        {% if item.variant.title != 'Default Title' %} {{ item.variant.title }},{% endif %}
+                        ${{ price | round }}
+                        <div class="quantity-container" data-quantity="{{ item.quantity }}">
+                            <img class="decrement" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/39384297500c145afa524e1721a04663.svg?v=1683610701">
+                            <span class="quantity">
+                                {{ item.quantity }}
+                            </span>
+                            <img class="increment" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/18dddcc9cf53b547eaf0f76c308502f6.svg?v=1683610701">     
+                        </div>
+                    </div>
+                    <img class="remove" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/Group_22.svg?v=1683609354">
+                </div>
+            </div>
+            {% endfor %}
+            <div class="subtotal-container">
+                <span class="subtotal-text">SUBTOTAL</span>
+                <span class="subtotal-price">{{ cart.total_price | money_without_trailing_zeros }}</span>
+            </div>
+        {% endif %}
+    </div>
+    <div class="cart-bottom">
+        {% if cart.item_count == 0 %}
+            <div class="start-shopping"></div>
+        {% else %}
+            <div class="checkout"></div>
+            <div class="line"></div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+console.log({{ cart | json }})
+</script>

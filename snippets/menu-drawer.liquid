@@ -1,0 +1,29 @@
+<div class="menu-drawer">
+    <div class="menu-drawer-inner">
+        <div class="menu-btn menu-btn-black">close</div>
+        <div class="logo">
+            <a href="{{ shop.url }}">
+                <img src="{{ settings.nav_logo | img_url: 'master' }}" alt="Logo">
+            </a>
+        </div>
+        <ul>
+            {% for link in linklists.main-menu.links %}
+              
+                <li  class="link-item {% if link.title == 'Euphorics' %}mobile-only{% endif %}{% if forloop.index == 4 %} break {% endif %}"> 
+                    {% if forloop.index == 1 %} 
+                        <span class="kin-first-hover"></span>
+                    {% endif %}
+                    <a href="{{ link.url }}" 
+                        {% if forloop.index > 3 %} 
+                        class="small"
+                        {% else %}
+                        class="large"
+                        {% endif %}
+                    >
+                    {{ link.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
