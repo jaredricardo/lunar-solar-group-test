@@ -4,7 +4,7 @@
     background-image: url({{ section.settings.hero_desktop | img_url: 'master' }});
 }
 
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 901px) {
     .hero-container {
         background-image: url(none);
     }    
@@ -14,7 +14,7 @@
 <div class="hero-container">
     <div class="text-container">
         {% if section.settings.hero_main_text %}
-            <h1>{{ section.settings.hero_main_text }}</h1>
+            <h1>Bliss up for <span class="italic">Bliss</span>tober</h1>
         {% endif %}
         {% if section.settings.hero_sub_text %}
             <div class="hero-subtext">{{ section.settings.hero_sub_text }}</div>
@@ -24,14 +24,14 @@
             <div class="btn-container">
 
                 {% if section.settings.hero_btn_extra_text %}
-                    <div class="her-btn-extra-txt">{{ section.settings.hero_btn_extra_text }}</div>
+                    <div class="hero-btn-extra-txt">{{ section.settings.hero_btn_extra_text }}</div>
                 {% endif %}
 
                 <a class="desktop" href="{{ section.settings.btn_link }}" target="_blank">
                     {{ section.settings.hero_btn_txt }}
                 </a>
                 <a class="mobile" href="{{ section.settings.btn_link }}" target="_blank">
-                    Shop Dream Light
+                    SHOP DREAM LIGHT
                 </a>
             </div>
         {% endif %}

@@ -4,9 +4,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
         <title>Kin</title>
-        {{ content_for_header }}
         {{ 'base.css' | asset_url | stylesheet_tag }}
+        {{ 'fonts.css.liquid' | asset_url | stylesheet_tag }}
         {{ 'main.js' | asset_url | script_tag }}
+        <style>
+            /* fonts */
+            @font-face {
+                font-family: "Ogg Thin Italic";
+                src: url("{{ 'Ogg-ThinItalic.ttf' | asset_url }}") format("truetype");
+            }
+             @font-face {
+                font-family: "Ogg Thin";
+                src: url("{{ 'Ogg-Thin.ttf' | asset_url }}") format("truetype");
+            }
+            @font-face {
+                font-family: 'Ogg Med';
+                src: url("{{ 'Ogg-Medium.ttf' | asset_url }}") format("truetype");
+            }
+            @font-face {
+                font-family: 'univers';
+                src: url("{{ 'univers.ttf' | asset_url }}") format("truetype");
+            }
+            @font-face {
+                font-family: 'univers bold';
+                src: url("{{ 'Univers-Bold.ttf' | asset_url }}") format("truetype");
+            }
+
+        </style>
+        {{ content_for_header }}
     </head>
     <body>
         {% include 'header' %}

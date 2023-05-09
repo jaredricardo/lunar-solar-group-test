@@ -1,3 +1,4 @@
+
 /* general */
 
 body {
@@ -43,6 +44,7 @@ a {
 .menu-btn-white {
     border: 2px solid white;
     color: white;
+    font-family: 'univers';
 }
 
 .logo img{
@@ -85,29 +87,39 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 120px;
+    padding-left: 120px;
 }
 
 .text-container h1 {
     font-size: 97px;
     line-height: 118px;
-    font-weight: 400px;
-    font-family: 'Ogg-Regular';
-    margin: 0px;
+    font-family: 'Ogg Thin';
+    margin: 2vh 0;
     color: #F9F8F5;
+}
+
+.text-container span.italic {
+    font-family: 'Ogg Thin Italic';    
 }
 
 .hero-subtext {
     font-size: 16px;
     line-height: 25px;
-    font-weight: 400px;
+    color: #F9F8F5;
     font-family: 'Univers';
+    max-width: 240px;
+    letter-spacing: 1px;
+    margin: 1.5vh 0;
 }
 
 .hero-btn-extra-txt {
     font-size: 11px;
     line-height: 20px;
     color: #F9F8F5;
+    font-family: 'Univers';
+    letter-spacing: .46px;
+    text-transform: uppercase;
+    margin: 1.5vh 0;
 }
 
 .mobile-background {
@@ -137,6 +149,9 @@ a {
     line-height: 16px;
     background-color: #FFFFFF;
     color: #232323;
+    font-family: 'univers bold';
+    letter-spacing: 1.16px;
+    color: #232323;
 }
 
 .btn-container .mobile {
@@ -152,7 +167,7 @@ img.mobile {
 }
 
 
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 901px) {
     header {
         padding: 7%;
     }
@@ -182,7 +197,7 @@ img.mobile {
         flex-direction: column;
     }
     .text-container {
-        margin-top: 46vh;
+        margin-top: 45vh;
         justify-content: start;
     }
     .text-container h1 {
@@ -195,13 +210,22 @@ img.mobile {
     }
     .btn-container a {
         max-width: 376px;
-        margin: 0 5%;
     }
     .btn-container .desktop {
         display: none;
     }
     .btn-container .mobile {
         display: flex;
+    }
+    .text-container {
+        padding: 0;
+    }
+    .hero-subtext {
+        text-align: center;
+    }
+    .hero-btn-extra-txt {
+        text-align: center;
+        font-size: 9px;
     }
 }
 
@@ -230,6 +254,7 @@ img.mobile {
 
 .menu-btn-black {
     border: 2px solid black;
+    font-family: 'univers';
     color: black;
     position: absolute;
     top: 15px;
@@ -261,7 +286,7 @@ img.mobile {
 
 .kin-first-hover.hovered {
     position: absolute;
-    content: url(https://cdn.shopify.com/s/files/1/0756/2769/2310/files/dl_product_1.png?v=1683573080);
+    content: url('https://cdn.shopify.com/s/files/1/0756/2769/2310/files/dl_product_1.png?v=1683573080');
     max-width: 28px;
     left: -50px;
     top: 15px;
@@ -270,11 +295,15 @@ img.mobile {
 .menu-drawer .large {
     font-size: 60px;
     line-height: 90px;
+    color: #2B2B2B;
+    font-family: 'Ogg Med';
 }
 
 .menu-drawer .small {
     font-size: 14px;
     line-height: 30px;
+    color: #2B2B2B;
+    font-family: 'univers';
 }
 
 .menu-drawer .break {
@@ -297,7 +326,7 @@ img.mobile {
     width: 55px;
 }
 
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 901px) {
     .menu-drawer {
         width: 100vw;
     }
@@ -333,6 +362,30 @@ img.mobile {
 
 .cart-drawer.cart-open {
     left: 60%;
+}
+
+.cart-loading-opacity {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color:rgba(255,255,255, .65);
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: -100;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-loading-opacity.loading {
+    z-index: 100 !important;
+    pointer-events: none !important;
+    display: flex !important;
+}
+
+.cart-loading-opacity img {
+    width: 15%;
+    max-width: 80px;
 }
 
 .cart-top {
@@ -375,6 +428,10 @@ img.mobile {
     flex: 2;
 }
 
+.cart-item .item-image-container a {
+    display: flex;
+}
+
 .cart-item .item-image {
     width: 100%;
 }
@@ -386,6 +443,7 @@ img.mobile {
 .variant-title-price {
     font-size: 14px;
     line-height: 20px;
+    font-family: 'univers';
     color: #2B2B2B;
 }
 
@@ -395,7 +453,9 @@ img.mobile {
 }
 
 .cart-empty-text {
+    font-family: 'Ogg Med';
     font-size: 40px;
+    color: #2B2B2B;
 }
 
 .cart-item .item-title {
@@ -403,6 +463,8 @@ img.mobile {
     max-width: 80%;
     line-height: 32px;
     color: #2B2B2B;
+    cursor: pointer;
+    font-family: 'Ogg Med';
 }
 
 .cart-item .remove {
@@ -466,19 +528,30 @@ img.mobile {
 .subtotal-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 8px;
+}
+
+.subtotal-container.hide {
+    display: none;
+}
+
+.subtotal-text, 
+.subtotal-price {
+    font-family: 'univers';
+    line-height: 30px;
 }
 
 .subtotal-text {
     font-size: 11px;
+    letter-spacing: .25px;
+
 }
 
 .subtotal-price {
+    line-height: 30px;
     font-size: 14px;
-    font-weight: bold;
 }
 
-@media screen and (max-width: 801px) {
+@media screen and (max-width: 901px) {
     .cart-drawer {
         width: 100vw;
     }

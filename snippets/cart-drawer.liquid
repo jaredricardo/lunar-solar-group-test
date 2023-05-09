@@ -1,6 +1,7 @@
 {% comment %} initial cart state {% endcomment %}
 
 <div class="cart-drawer">
+    <div class="cart-loading-opacity"></div>
     <div class="cart-top">
         <a href="{{ shop.url }}">
             <img src="{{ settings.nav_logo | img_url: 'master' }}" alt="logo">
@@ -16,31 +17,36 @@
             </div>
         {% else %}
             {% for item in cart.items %}
-            <div class="cart-item">
-                {% assign price = item.price | money_without_currency %}
-                <div class="item-image-container">
-                    <img class="item-image" src="{{ item.image | img_url: 'medium' }}">
-                </div>
-                <div class="item-info">
-                    <div class="item-title">{{ item.title }}</div>
-                    <div class="variant-title-price">
-                        {% if item.variant.title != 'Default Title' %} {{ item.variant.title }},{% endif %}
-                        ${{ price | round }}
-                        <div class="quantity-container" data-quantity="{{ item.quantity }}">
-                            <img class="decrement" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/39384297500c145afa524e1721a04663.svg?v=1683610701">
-                            <span class="quantity">
-                                {{ item.quantity }}
-                            </span>
-                            <img class="increment" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/18dddcc9cf53b547eaf0f76c308502f6.svg?v=1683610701">     
-                        </div>
+                <div class="cart-item">
+                    {% assign price = item.price | money_without_currency %}
+                    <div class="item-image-container">
+                        <a href="{{ item.url }}">
+                            <img class="item-image" src="{{ item.image | img_url: 'medium' }}">
+                        </a>
                     </div>
-                    <img class="remove" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/Group_22.svg?v=1683609354">
+                    <div class="item-info">
+                        <a href="{{ item.url }}">
+                            <div class="item-title">{{ item.title }}</div>
+                        </a>
+                        <div class="variant-title-price">
+                            {% if item.variant.title != 'Default Title' %} {{ item.variant.title }},{% endif %}
+                            ${{ price | round }}
+                            <div class="quantity-container" data-quantity="{{ item.quantity }}" data-variant-id="{{ item.variant_id }}">
+                                <img class="decrement" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/39384297500c145afa524e1721a04663.svg?v=1683610701">
+                                <span class="quantity">
+                                    {{ item.quantity }}
+                                </span>
+                                <img class="increment" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/18dddcc9cf53b547eaf0f76c308502f6.svg?v=1683610701">     
+                            </div>
+                        </div>
+                        <img class="remove" src="https://cdn.shopify.com/s/files/1/0756/2769/2310/files/Group_22.svg?v=1683609354">
+                    </div>
                 </div>
-            </div>
             {% endfor %}
             <div class="subtotal-container">
+                {% assign cartTotal = cart.total_price | money_without_trailing_zeros %}
                 <span class="subtotal-text">SUBTOTAL</span>
-                <span class="subtotal-price">{{ cart.total_price | money_without_trailing_zeros }}</span>
+                <span class="subtotal-price">{{ cartTotal | remove: ',' }}</span>
             </div>
         {% endif %}
     </div>
